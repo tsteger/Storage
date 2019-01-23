@@ -187,7 +187,7 @@ namespace Storage.Controllers
 
         public async Task<IActionResult> XSeek(string CategoryId, string searchString)
         {
-            // Use LINQ to get list of genres.
+            // New Master
             IQueryable<string> catQuery = from m in _context.Product
                                             orderby m.Name
                                             select m.Category; //--
