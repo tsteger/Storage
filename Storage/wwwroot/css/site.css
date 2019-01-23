@@ -62,6 +62,6 @@ body {
     border: 1px solid black;
     border-radius: 5px;
     // background-color: antiquewhite;
-    background-image: linear-gradient(black 5%,lightgray 5%, white 60%);
+    background-image: linear-gradient(lightgray 5%, white 60%);
     margin: 5px;
 }
