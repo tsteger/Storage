@@ -25,14 +25,7 @@ namespace Storage.Controllers
         // GET: Products
         public async Task<IActionResult> Index()
         {
-            logger.Trace("Sample trace message");
-            logger.Debug("Sample debug message");
-            logger.Info("Sample informational message");
-            logger.Warn("Sample warning message");
-            logger.Error("Sample error message");
-            logger.Fatal("Sample fatal error message");
-
-           
+      
             return View(await _context.Product.ToListAsync());
         }
 
@@ -69,6 +62,10 @@ namespace Storage.Controllers
         {
             if (ModelState.IsValid)
             {
+                product.Category = FirstCharToUpper(product.Category);
+                product.Name = FirstCharToUpper(product.Name);
+                product.Shelf = FirstCharToUpper(product.Shelf);
+                product.Description = FirstCharToUpper(product.Description);
                 _context.Add(product);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -108,6 +105,10 @@ namespace Storage.Controllers
             {
                 try
                 {
+                    product.Category = FirstCharToUpper(product.Category);
+                    product.Name = FirstCharToUpper(product.Name);
+                    product.Shelf = FirstCharToUpper(product.Shelf);
+                    product.Description = FirstCharToUpper(product.Description);
                     _context.Update(product);
                     await _context.SaveChangesAsync();
                 }
@@ -218,5 +219,14 @@ namespace Storage.Controllers
         {
             return _context.Product.Any(e => e.Id == id);
         }
+
+
+        private static string FirstCharToUpper(string input)
+        {
+            if (String.IsNullOrEmpty(input))
+                return input;
+            return input.First().ToString().ToUpper() + input.Substring(1);
+        }
+        
     }
 }
