@@ -25,15 +25,7 @@ namespace Storage.Controllers
         // GET: Products
         public async Task<IActionResult> Index()
         {
-            // Test av NLog , No susses
-            logger.Trace("Sample trace message");
-            logger.Debug("Sample debug message");
-            logger.Info("Sample informational message");
-            logger.Warn("Sample warning message");
-            logger.Error("Sample error message");
-            logger.Fatal("Sample fatal error message");
-
-           
+            // Test av NLog , No susse                
             return View(await _context.Product.ToListAsync());
         }
 
