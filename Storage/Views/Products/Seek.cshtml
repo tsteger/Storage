@@ -1,0 +1,17 @@
+﻿@model Storage.Models.Product
+
+@{
+    ViewData["Title"] = "Seek";
+
+}
+
+<h1>Seek</h1>
+
+
+<form asp-controller="ProductsController" asp-action="RegisterInput" method="post">
+
+
+    <br />
+    Name:  <input asp-for="Name" /> <br />
+    <button type="submit">Seek</button>
+</form>
