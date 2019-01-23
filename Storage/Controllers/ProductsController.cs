@@ -25,6 +25,7 @@ namespace Storage.Controllers
         // GET: Products
         public async Task<IActionResult> Index()
         {
+            // Test av NLog , No susses
             logger.Trace("Sample trace message");
             logger.Debug("Sample debug message");
             logger.Info("Sample informational message");
